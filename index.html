@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Display App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quote-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 20px 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 18px;
+            font-weight: 600;
+            color: #007BFF;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="quote-container">
+        <div id="quote" class="quote-text">Click the button to see a quote!</div>
+        <div id="author" class="quote-author"></div>
+        <button onclick="generateQuote()">Get Random Quote</button>
+    </div>
+
+    <script>
+        // Array of Quotes
+        const quotes = [
+            {
+                text: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+            {
+                text: "It always seems impossible until it's done.",
+                author: "Nelson Mandela"
+            },
+            {
+                text: "The future belongs to those who believe in the beauty of their dreams.",
+                author: "Eleanor Roosevelt"
+            },
+            {
+                text: "Don't watch the clock; do what it does. Keep going.",
+                author: "Sam Levenson"
+            },
+            {
+                text: "Success usually comes to those who are too busy to be looking for it.",
+                author: "Henry David Thoreau"
+            },
+            {
+                text: "The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty.",
+                author: "Winston Churchill"
+            },
+            {
+                text: "You miss 100% of the shots you don’t take.",
+                author: "Wayne Gretzky"
+            },
+            {
+                text: "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+                author: "Ralph Waldo Emerson"
+            },
+            {
+                text: "Believe you can and you're halfway there.",
+                author: "Theodore Roosevelt"
+            }
+        ];
+
+        // Function to generate a random quote
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+
+            // Display the quote and author
+            document.getElementById('quote').textContent = `"${randomQuote.text}"`;
+            document.getElementById('author').textContent = `— ${randomQuote.author}`;
+        }
+    </script>
+</body>
+</html>
